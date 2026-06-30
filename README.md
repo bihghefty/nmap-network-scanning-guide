@@ -1,19 +1,23 @@
 # Network Scanning Guide for Beginners — Learn Nmap Like a SOC Analyst
 
-A practical, no-fluff guide to network scanning with Nmap — built from real home lab sessions, not theory.
+Network scanning is one of the first skills every cybersecurity professional should learn.
 
-When I started learning cybersecurity, most tutorials either skipped the basics or made network scanning sound more complicated than it needed to be. This guide walks through the fundamentals the way a working SOC analyst actually uses them.
+Whether you're interested in becoming a SOC analyst, penetration tester, or network defender, knowing how to discover hosts, identify services, and understand what devices are exposing on a network is essential.
 
-## What's inside
+This guide is based on hands-on practice in my home lab and explains Nmap the way I wish it had been explained when I was starting out—simple, practical, and focused on real-world use.
+
+## What's Inside
 
 - Discover live hosts on a network using Nmap
 - Identify open ports and running services
-- Understand and interpret Nmap scan results
-- Learn from practical home lab examples
-- Explore MITRE ATT&CK reconnaissance techniques
-- Full Nmap command cheat sheet for quick reference
+- Learn how to read and understand Nmap results
+- Real examples from a home lab
+- MITRE ATT&CK mappings for reconnaissance techniques
+- A printable Nmap command cheat sheet
 
-## Sample: Host Discovery
+---
+
+## Example: Host Discovery
 
 ```bash
 # Discover live hosts on a /24 subnet
@@ -22,13 +26,18 @@ nmap -sn 192.168.1.0/24
 # Output
 Nmap scan report for 192.168.1.1
 Host is up (0.00041s latency).
+
 Nmap scan report for 192.168.1.13
 Host is up (0.00038s latency).
 ```
 
-**Why this matters (hacker's perspective):** before you can attack or defend a network, you need to know what's actually on it. Host discovery is reconnaissance step one — and it maps directly to MITRE ATT&CK's [T1018 — Remote System Discovery](https://attack.mitre.org/techniques/T1018/).
+One of the first questions during a security assessment is, "What devices are actually on this network?"
 
-## Sample: Service & Version Detection
+A simple host discovery scan helps answer that question. Before you can secure or assess a network, you need to know what systems are available. This technique aligns with **MITRE ATT&CK T1018 – Remote System Discovery**.
+
+---
+
+## Example: Service & Version Detection
 
 ```bash
 nmap -sV 192.168.1.13
@@ -39,16 +48,55 @@ PORT     STATE SERVICE VERSION
 3306/tcp open  mysql   MySQL 8.0.32
 ```
 
-Knowing exact service versions lets you cross-reference against known CVEs — this is how real vulnerability assessments start.
+Finding open ports is only part of the job.
 
-## Get the full guide
-
-The full guide covers 7 essential Nmap scan types, complete walkthroughs with real lab results, defensive countermeasures for each technique, and a complete command cheat sheet you can keep using as a reference.
-
-**[📖 Get it on Amazon — $7.00](https://www.amazon.com/dp/B0H6Y5225K)**
+Knowing the exact software and version running on a system allows security professionals to investigate known vulnerabilities, verify configurations, and prioritize potential risks.
 
 ---
 
-### About the author
+## Why I Wrote This Book
 
-Written by **Henry Uwaezuoke** — Lagos-based IT technician transitioning into cybersecurity, focused on SOC analysis and penetration testing. See more of my work: [bihghefty.github.io/cyberportfolio](https://bihghefty.github.io/cyberportfolio)
+When I started learning Nmap, I found plenty of tutorials explaining the commands, but very few explained why those commands mattered in real cybersecurity work.
+
+I wrote this guide to bridge that gap. Instead of memorizing commands, you'll learn when to use them, what the results mean, and how they fit into real-world reconnaissance and defensive security.
+
+---
+
+## Get the Full Guide
+
+The complete guide includes:
+
+- Host discovery
+- Port scanning
+- Service and version detection
+- Operating system detection
+- Common Nmap scan types
+- Practical home lab walkthroughs
+- Defensive security tips
+- MITRE ATT&CK mappings
+- A printable Nmap cheat sheet
+
+📚 **Available on Amazon**
+
+**Amazon Author Page:**  
+https://amazon.com/author/henryuwaezuoke
+
+---
+
+## About the Author
+
+Hi, I'm **Henry Uwaezuoke**.
+
+I'm a cybersecurity educator, SOC analyst, penetration tester, and IT professional with a passion for helping beginners build practical cybersecurity skills.
+
+I enjoy turning complex technical concepts into simple, hands-on lessons that people can immediately apply in their own labs. My goal is to help aspiring cybersecurity professionals build confidence through practice rather than theory alone.
+
+---
+
+## Connect with Me
+
+🌐 **Cybersecurity Portfolio**  
+https://bihghefty.github.io/cyberportfolio
+
+📚 **Amazon Author Page**  
+https://amazon.com/author/henryuwaezuoke
